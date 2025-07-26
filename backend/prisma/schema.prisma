@@ -1,0 +1,290 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                                                                  String                  @id @default(uuid())
+  email                                                               String                  @unique
+  password_hash                                                       String                  @map("password_hash")
+  name                                                                String
+  role                                                                String                  @default("employee")
+  isActive                                                            Boolean                 @default(true) @map("is_active")
+  last_login                                                          DateTime?               @map("last_login")
+  createdAt                                                           DateTime                @default(now()) @map("created_at")
+  updatedAt                                                           DateTime                @updatedAt @map("updated_at")
+  departmentId                                                        String?                 @map("department_id")
+  positionId                                                          String?                 @map("position_id")
+  surname                                                             String?
+  admissions                                                          Admission?              @relation("UserAdmission")
+  receivedMessages                                                    ChatMessage[]           @relation("ChatMessageReceiver")
+  sentMessages                                                        ChatMessage[]           @relation("ChatMessageSender")
+  performance_evaluations_performance_evaluations_evaluator_idTousers PerformanceEvaluation[] @relation("performance_evaluations_evaluator_idTousers")
+  performance_evaluations_performance_evaluations_user_idTousers      PerformanceEvaluation[] @relation("performance_evaluations_user_idTousers")
+  profile                                                             Profile?                @relation("UserProfile")
+  reports                                                             reports[]
+  tasks                                                               Task[]                  @relation("UserTasks")
+  training_participations                                             UserTraining[]          @relation("UserToUserTraining")
+  trainings                                                           Training[]              @relation("InstructorToTraining")
+  department                                                          Department?             @relation("UserDepartment", fields: [departmentId], references: [id])
+  position                                                            Position?               @relation("UserPosition", fields: [positionId], references: [id])
+  groups                                                              Group[]                 @relation("UserGroups")
+
+  @@map("users")
+}
+
+model Profile {
+  id               String    @id @default(uuid())
+  address          String?   @default("")
+  phone            String?   @default("")
+  birthDate        DateTime? @map("birth_date")
+  document         String?
+  emergencyContact String?   @map("emergency_contact")
+  avatar           String?
+  bio              String?
+  createdAt        DateTime  @default(now()) @map("created_at")
+  updatedAt        DateTime  @updatedAt @map("updated_at")
+  user_id          String    @unique
+  user             User      @relation("UserProfile", fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@map("profiles")
+}
+
+model Position {
+  id          String      @id @default(cuid())
+  name        String
+  description String?
+  salary      Float?
+  status      String      @default("Não definido")
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  users       User[]      @relation("UserPosition")
+  admissions  Admission[] @relation("PositionAdmission")
+
+  @@map("positions")
+}
+
+model Department {
+  id          String      @id @default(uuid())
+  name        String      @unique
+  description String?
+  managerId   String?     @map("manager_id")
+  createdAt   DateTime    @default(now()) @map("created_at")
+  updatedAt   DateTime    @updatedAt @map("updated_at")
+  users       User[]      @relation("UserDepartment")
+  admissions  Admission[] @relation("DepartmentAdmission")
+
+  @@map("departments")
+}
+
+model PerformanceEvaluation {
+  id                                                String   @id @default(uuid())
+  period                                            String
+  score                                             Float
+  goals                                             String?
+  achievements                                      String?
+  feedback                                          String?
+  status                                            String   @default("pending")
+  createdAt                                         DateTime @default(now()) @map("created_at")
+  updatedAt                                         DateTime @updatedAt @map("updated_at")
+  evaluator_id                                      String
+  user_id                                           String
+  users_performance_evaluations_evaluator_idTousers User     @relation("performance_evaluations_evaluator_idTousers", fields: [evaluator_id], references: [id])
+  users_performance_evaluations_user_idTousers      User     @relation("performance_evaluations_user_idTousers", fields: [user_id], references: [id])
+
+  @@map("performance_evaluations")
+}
+
+model Admission {
+  id                String              @id @default(uuid())
+  hireDate          DateTime            @map("hire_date")
+  contractType      String              @map("contract_type")
+  salary            Float?              @default(0.0)
+  benefits          String?
+  terminationDate   DateTime?
+  terminationReason String?
+  status            String              @default("active")
+  createdAt         DateTime            @default(now()) @map("created_at")
+  updatedAt         DateTime            @updatedAt @map("updated_at")
+  user_id           String              @unique @map("user_id")
+  position_id       String?             @map("position_id")
+  department_id     String?             @map("department_id")
+  user              User                @relation("UserAdmission", fields: [user_id], references: [id])
+  position          Position?           @relation("PositionAdmission", fields: [position_id], references: [id])
+  department        Department?         @relation("DepartmentAdmission", fields: [department_id], references: [id])
+  documents         AdmissionDocument[] @relation("AdmissionDocuments")
+
+  @@map("admissions")
+}
+
+model AdmissionDocument {
+  id          String    @id @default(uuid())
+  admissionId String    @map("admission_id")
+  fileName    String    @map("file_name")
+  fileType    String    @map("file_type")
+  fileSize    Int       @map("file_size")
+  filePath    String    @map("file_path")
+  uploadedAt  DateTime  @default(now()) @map("uploaded_at")
+  uploadedBy  String?   @map("uploaded_by")
+  admission   Admission @relation("AdmissionDocuments", fields: [admissionId], references: [id], onDelete: Cascade)
+
+  @@map("admission_documents")
+}
+
+model Task {
+  id          String    @id @default(uuid())
+  title       String
+  description String?
+  startDate   DateTime  @map("start_date")
+  endDate     DateTime  @map("end_date")
+  userId      String?   @map("user_id")
+  groupId     String?   @map("group_id")
+  isActive    Boolean   @default(true) @map("is_active")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  user        User?     @relation("UserTasks", fields: [userId], references: [id])
+  group       Group?    @relation("GroupTasks", fields: [groupId], references: [id])
+  training    Training? @relation("TrainingTasks", fields: [trainingId], references: [id])
+  trainingId  String?   @map("training_id")
+
+  @@map("tasks")
+}
+
+model Group {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  description String?
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  tasks       Task[]   @relation("GroupTasks")
+  users       User[]   @relation("UserGroups")
+
+  @@map("groups")
+}
+
+model ReportDocument {
+  id          String   @id @default(uuid())
+  reportId    String   @map("report_id")
+  fileName    String   @map("file_name")
+  fileType    String   @map("file_type")
+  fileSize    Int      @map("file_size")
+  filePath    String   @map("file_path")
+  uploaded_at DateTime @default(now()) @map("uploaded_at")
+  uploaded_by String?  @map("uploaded_by")
+  report      reports  @relation(fields: [reportId], references: [id], onDelete: Cascade)
+
+  @@map("documents")
+}
+
+model Setting {
+  id          String   @id @default(uuid())
+  key         String   @unique
+  value       String
+  description String?
+  category    String?
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("settings")
+}
+
+model ChatMessage {
+  id          String   @id @default(uuid())
+  receiverId  String   @map("receiverId")
+  message     String
+  timestamp   DateTime @default(now()) @map("timestamp")
+  isBot       Boolean  @default(false) @map("isBot")
+  isRead      Boolean  @default(false) @map("isRead")
+  messageType String   @default("text") @map("messageType")
+  sender_id   String   @map("sender_id")
+  receiver    User     @relation("ChatMessageReceiver", fields: [receiverId], references: [id])
+  sender      User     @relation("ChatMessageSender", fields: [sender_id], references: [id])
+
+  @@map("chat_messages")
+}
+
+model Training {
+  id                      String         @id @default(uuid())
+  name                    String
+  description             String?
+  startDate               DateTime       @map("start_date")
+  endDate                 DateTime       @map("end_date")
+  maxParticipants         Int?           @map("max_participants")
+  status                  String         @default("scheduled")
+  createdAt               DateTime       @default(now()) @map("created_at")
+  updatedAt               DateTime       @updatedAt @map("updated_at")
+  progress                Float?         @default(0)
+  instructorId            String?        @map("instructor_id")
+  instructor              User?          @relation("InstructorToTraining", fields: [instructorId], references: [id])
+  training_participations UserTraining[] @relation("TrainingToUserTraining")
+  tasks                   Task[]         @relation("TrainingTasks")
+
+  @@map("trainings")
+}
+
+model UserTraining {
+  id          String             @id @default(uuid())
+  enrolledAt  DateTime           @default(now()) @map("enrolled_at")
+  completedAt DateTime?          @map("completed_at")
+  status      String             @default("enrolled")
+  score       Float?
+  certificate String?            @map("certificate")
+  training_id String
+  user_id     String
+  progress    Float?             @default(0) // Adicionado
+  trainings   Training           @relation("TrainingToUserTraining", fields: [training_id], references: [id])
+  users       User               @relation("UserToUserTraining", fields: [user_id], references: [id])
+  documents   TrainingDocument[] @relation("TrainingDocuments")
+
+  @@unique([user_id, training_id], map: "training_participations_userId_trainingId_key")
+  @@map("training_participations")
+}
+
+model TrainingDocument {
+  id             String       @id @default(uuid())
+  userTrainingId String       @map("user_training_id")
+  fileName       String       @map("file_name")
+  fileType       String       @map("file_type")
+  fileSize       Int          @map("file_size")
+  filePath       String       @map("file_path")
+  uploadedAt     DateTime     @default(now()) @map("uploaded_at")
+  uploadedBy     String?      @map("uploaded_by")
+  userTraining   UserTraining @relation("TrainingDocuments", fields: [userTrainingId], references: [id], onDelete: Cascade)
+
+  @@map("training_documents")
+}
+
+model Supporter {
+  id          String   @id @default(cuid())
+  name        String
+  phone       String
+  address     String
+  cep         String
+  mapping     String
+  supportType String
+  status      String   @default("active")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  lat         Float?
+  lng         Float?
+
+  @@map("supporters")
+}
+
+model reports {
+  id            String           @id
+  name          String
+  type          String
+  generated_by  String
+  frequency     String?
+  scheduledDate DateTime?        @map("scheduled_date")
+  created_at    DateTime         @default(now())
+  documents     ReportDocument[]
+  users         User             @relation(fields: [generated_by], references: [id])
+
+  @@map("reports")
+}

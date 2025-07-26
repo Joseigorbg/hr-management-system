@@ -1,0 +1,186 @@
+-- Habilitar extensão uuid-ossp (necessária para gerar UUIDs)
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+-- Inserts para departments
+INSERT INTO public.departments (id, name, description, manager_id, created_at, updated_at) VALUES
+('d1e2f3g4-h5i6-j7k8-l9m0-n1o2p3q4r5s6', 'Recursos Humanos', 'Departamento de gestão de pessoas', NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('d2e3f4g5-i6j7-k8l9-m0n1-o2p3q4r5s6t7', 'Tecnologia da Informação', 'Departamento de TI e desenvolvimento', NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('d3f4g5h6-j7k8-l9m0-n1o2-p3q4r5s6t7u8', 'Financeiro', 'Departamento de finanças e contabilidade', NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('d4g5h6i7-k8l9-m0n1-o2p3-q4r5s6t7u8v9', 'Marketing', 'Departamento de marketing e vendas', NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('d5h6i7j8-k9l0-m1n2-o3p4-q5r6s7t8u9v0', 'Logística', 'Departamento de transporte e logística', NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('d6i7j8k9-l0m1-n2o3-p4q5-r6s7t8u9v0w1', 'Jurídico', 'Departamento de assessoria jurídica', NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+-- Inserts para positions
+INSERT INTO public.positions (id, name, description, salary, status, "createdAt", "updatedAt") VALUES
+('p1q2r3s4-t5u6-v7w8-x9y0-z1a2b3c4d5e6', 'Administrador', 'Cargo de administração do sistema', 10000.00, 'active', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('p2r3s4t5-u6v7-w8x9-y0z1-a2b3c4d5e6f7', 'Desenvolvedor Sênior', 'Desenvolvedor com experiência avançada', 8000.00, 'active', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('p3t4u5v6-w7x8-y9z0-a1b2-c3d4e5f6g7h8', 'Analista Financeiro', 'Analista de dados financeiros', 6000.00, 'active', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('p4v5w6x7-y8z9-a0b1-c2d3-e4f5g6h7i8j9', 'Gerente de Marketing', 'Gerente de campanhas de marketing', 9000.00, 'active', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('p5x6y7z8-a9b0-c1d2-e3f4-g5h6i7j8k9l0', 'Assistente de Logística', 'Suporte em operações logísticas', 4500.00, 'active', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('p6z7a8b9-c0d1-e2f3-g4h5-i6j7k8l9m0n1', 'Advogado Corporativo', 'Assessor jurídico corporativo', 12000.00, 'active', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+-- Inserts para users
+INSERT INTO public.users (
+  id, email, password_hash, name, role, is_active, last_login, created_at, updated_at, department_id, position_id, surname
+) VALUES
+('a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6', 'admin@hrmanagement.com', '$2b$10$q1Z.47tDZjCpGvNZqFawy.ho9u5tFCpYKfM68CV6rEYV39hxqcZ3m', 'Admin User', 'admin', true, NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'd1e2f3g4-h5i6-j7k8-l9m0-n1o2p3q4r5s6', 'p1q2r3s4-t5u6-v7w8-x9y0-z1a2b3c4d5e6', NULL),
+('b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q7', 'dev.senior@ti.com', '$2b$10$q1Z.47tDZjCpGvNZqFawy.ho9u5tFCpYKfM68CV6rEYV39hxqcZ3m', 'João Silva', 'employee', true, NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'd2e3f4g5-i6j7-k8l9-m0n1-o2p3q4r5s6t7', 'p2r3s4t5-u6v7-w8x9-y0z1-a2b3c4d5e6f7', NULL),
+('c3d4e5f6-g7h8-i9j0-k1l2-m3n4o5p6q7r8', 'ana.fin@financeiro.com', '$2b$10$q1Z.47tDZjCpGvNZqFawy.ho9u5tFCpYKfM68CV6rEYV39hxqcZ3m', 'Ana Oliveira', 'employee', true, NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'd3f4g5h6-j7k8-l9m0-n1o2-p3q4r5s6t7u8', 'p3t4u5v6-w7x8-y9z0-a1b2-c3d4e5f6g7h8', NULL),
+('d4e5f6g7-h8i9-j0k1-l2m3-n4o5p6q7r8s9', 'maria.marketing@marketing.com', '$2b$10$q1Z.47tDZjCpGvNZqFawy.ho9u5tFCpYKfM68CV6rEYV39hxqcZ3m', 'Maria Souza', 'employee', true, NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'd4g5h6i7-k8l9-m0n1-o2p3-q4r5s6t7u8v9', 'p4v5w6x7-y8z9-a0b1-c2d3-e4f5g6h7i8j9', NULL),
+('e5f6g7h8-i9j0-k1l2-m3n4-o5p6q7r8s9t0', 'logistica@company.com', '$2b$10$q1Z.47tDZjCpGvNZqFawy.ho9u5tFCpYKfM68CV6rEYV39hxqcZ3m', 'Carlos Lima', 'employee', true, NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'd5h6i7j8-k9l0-m1n2-o3p4-q5r6s7t8u9v0', 'p5x6y7z8-a9b0-c1d2-e3f4-g5h6i7j8k9l0', NULL),
+('f6g7h8i9-j0k1-l2m3-n4o5-p6q7r8s9t0u1', 'juridico@company.com', '$2b$10$q1Z.47tDZjCpGvNZqFawy.ho9u5tFCpYKfM68CV6rEYV39hxqcZ3m', 'Fernanda Almeida', 'employee', true, NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'd6i7j8k9-l0m1-n2o3-p4q5-r6s7t8u9v0w1', 'p6z7a8b9-c0d1-e2f3-g4h5-i6j7k8l9m0n1', NULL),
+('q6r7s8t9-u0v1-w2x3-y4z5-a6b7c8d9e0f1', 'remetente@company.com', '$2b$10$q1Z.47tDZjCpGvNZqFawy.ho9u5tFCpYKfM68CV6rEYV39hxqcZ3m', 'Remetente Externo', 'employee', true, NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, NULL, NULL),
+('bot-system-id', 'bot@system.com', 'N/A', 'Assistente RH', 'bot', true, NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, NULL, NULL);
+
+-- Inserts para profiles (mantido do script anterior para suportar autocompletar)
+INSERT INTO public.profiles (
+  id, address, phone, birth_date, document, emergency_contact, avatar, bio, created_at, updated_at, user_id
+) VALUES
+('550e8400-e29b-41d4-a716-446655440200', 'Rua Exemplo, 123, São Paulo, SP', '11987654321', '1990-01-15', '12345678901', '11999999999', '/uploads/profile/admin.png', 'Administrador do sistema', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6'),
+('550e8400-e29b-41d4-a716-446655440201', 'Avenida Tech, 456, São Paulo, SP', '11987654322', '1988-05-20', '98765432101', '11988888888', '/uploads/profile/joao.png', 'Desenvolvedor apaixonado por tecnologia', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q7'),
+('550e8400-e29b-41d4-a716-446655440202', 'Rua Financeira, 789, São Paulo, SP', '11987654323', '1992-03-10', '45678912301', '11977777777', '/uploads/profile/ana.png', 'Especialista em contabilidade', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'c3d4e5f6-g7h8-i9j0-k1l2-m3n4o5p6q7r8'),
+('550e8400-e29b-41d4-a716-446655440203', 'Rua Marketing, 101, São Paulo, SP', '11987654324', '1995-07-15', '32165498701', '11966666666', '/uploads/profile/maria.png', 'Gerente de campanhas de marketing', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'd4e5f6g7-h8i9-j0k1-l2m3-n4o5p6q7r8s9'),
+('550e8400-e29b-41d4-a716-446655440204', 'Rua Logística, 321, São Paulo, SP', '11987654325', '1993-11-20', '65432198701', '11955555555', '/uploads/profile/carlos.png', 'Assistente de logística', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'e5f6g7h8-i9j0-k1l2-m3n4-o5p6q7r8s9t0'),
+('550e8400-e29b-41d4-a716-446655440205', 'Rua Jurídica, 654, São Paulo, SP', '11987654326', '1985-02-25', '78912345601', '11944444444', '/uploads/profile/fernanda.png', 'Advogada corporativa', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'f6g7h8i9-j0k1-l2m3-n4o5-p6q7r8s9t0u1'),
+('550e8400-e29b-41d4-a716-446655440206', '', '', NULL, NULL, NULL, '/uploads/profile/default.png', NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'q6r7s8t9-u0v1-w2x3-y4z5-a6b7c8d9e0f1'),
+('550e8400-e29b-41d4-a716-446655440207', '', '', NULL, NULL, NULL, '/uploads/profile/bot.png', 'Bot do sistema', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'bot-system-id');
+
+-- Inserts para admissions (ajustado: removido documents, adicionado position_id e department_id)
+INSERT INTO public.admissions (
+  id, hire_date, contract_type, salary, benefits, status, created_at, updated_at, user_id, position_id, department_id
+) VALUES
+('d2e3f4g5-h6i7-j8k9-l0m1-n2o3p4q5r6s7', '2025-06-11', 'CLT', 8000.00, '{"vale_refeicao": 500, "plano_saude": true}', 'active', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q7', 'p2r3s4t5-u6v7-w8x9-y0z1-a2b3c4d5e6f7', 'd2e3f4g5-i6j7-k8l9-m0n1-o2p3q4r5s6t7'),
+('e3f4g5h6-i7j8-k9l0-m1n2-o3p4q5r6s7t8', '2025-05-12', 'CLT', 6000.00, '{"vale_transporte": 200}', 'active', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'c3d4e5f6-g7h8-i9j0-k1l2-m3n4o5p6q7r8', 'p3t4u5v6-w7x8-y9z0-a1b2-c3d4e5f6g7h8', 'd3f4g5h6-j7k8-l9m0-n1o2-p3q4r5s6t7u8'),
+('f4g5h6i7-j8k9-l0m1-n2o3-p4q5r6s7t8u9', '2025-04-13', 'CLT', 9000.00, '{"plano_saude": true, "vale_alimentacao": 300}', 'active', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'd4e5f6g7-h8i9-j0k1-l2m3-n4o5p6q7r8s9', 'p4v5w6x7-y8z9-a0b1-c2d3-e4f5g6h7i8j9', 'd4g5h6i7-k8l9-m0n1-o2p3-q4r5s6t7u8v9'),
+('g5h6i7j8-k9l0-m1n2-o3p4-q5r6s7t8u9v0', '2025-06-26', 'CLT', 4500.00, '{}', 'active', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'e5f6g7h8-i9j0-k1l2-m3n4-o5p6q7r8s9t0', 'p5x6y7z8-a9b0-c1d2-e3f4-g5h6i7j8k9l0', 'd5h6i7j8-k9l0-m1n2-o3p4-q5r6s7t8u9v0'),
+('h6i7j8k9-l0m1-n2o3-p4q5-r6s7t8u9v0w1', '2025-07-01', 'CLT', 12000.00, '{}', 'active', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'f6g7h8i9-j0k1-l2m3-n4o5-p6q7r8s9t0u1', 'p6z7a8b9-c0d1-e2f3-g4h5-i6j7k8l9m0n1', 'd6i7j8k9-l0m1-n2o3-p4q5-r6s7t8u9v0w1');
+
+-- Inserts para admission_documents (convertido de documents em admissions)
+INSERT INTO public.admission_documents (
+  id, admission_id, file_name, file_type, file_size, file_path, uploaded_at, uploaded_by
+) VALUES
+('550e8400-e29b-41d4-a716-446655440400', 'd2e3f4g5-h6i7-j8k9-l0m1-n2o3p4q5r6s7', 'Contrato.pdf', 'application/pdf', 204800, '/uploads/documents/contrato_joao_1234567890.pdf', CURRENT_TIMESTAMP, 'b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q7'),
+('550e8400-e29b-41d4-a716-446655440401', 'd2e3f4g5-h6i7-j8k9-l0m1-n2o3p4q5r6s7', 'RG.pdf', 'application/pdf', 102400, '/uploads/documents/rg_joao_1234567891.pdf', CURRENT_TIMESTAMP, 'b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q7'),
+('550e8400-e29b-41d4-a716-446655440402', 'e3f4g5h6-i7j8-k9l0-m1n2-o3p4q5r6s7t8', 'Contrato.pdf', 'application/pdf', 204800, '/uploads/documents/contrato_ana_1234567892.pdf', CURRENT_TIMESTAMP, 'c3d4e5f6-g7h8-i9j0-k1l2-m3n4o5p6q7r8'),
+('550e8400-e29b-41d4-a716-446655440403', 'f4g5h6i7-j8k9-l0m1-n2o3-p4q5r6s7t8u9', 'Contrato.pdf', 'application/pdf', 204800, '/uploads/documents/contrato_maria_1234567893.pdf', CURRENT_TIMESTAMP, 'd4e5f6g7-h8i9-j0k1-l2m3-n4o5p6q7r8s9'),
+('550e8400-e29b-41d4-a716-446655440404', 'f4g5h6i7-j8k9-l0m1-n2o3-p4q5r6s7t8u9', 'Comprovante.pdf', 'application/pdf', 153600, '/uploads/documents/comprovante_maria_1234567894.pdf', CURRENT_TIMESTAMP, 'd4e5f6g7-h8i9-j0k1-l2m3-n4o5p6q7r8s9');
+
+-- Inserts para reports (ajustado: removido filters e data)
+INSERT INTO public.reports (
+  id, name, type, generated_by, frequency, scheduled_date, created_at
+) VALUES
+('r1s2t3u4-v5w6-x7y8-z9a0-b1c2d3e4f5g6', 'Relatório de Admissão', 'admission', 'b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q7', 'monthly', '2025-07-01', CURRENT_TIMESTAMP),
+('r2u3v4w5-x6y7-z8a9-b0c1-d2e3f4g5h6i7j8', 'Relatório de Desempenho', 'performance', 'c3d4e5f6-g7h8-i9j0-k1l2-m3n4o5p6q7r8', 'quarterly', '2025-07-01', CURRENT_TIMESTAMP),
+('r3w4x5y6-z7a8-b9c0-d1e2-f3g4h5i6j7k8l9', 'Relatório Financeiro', 'financial', 'd4e5f6g7-h8i9-j0k1-l2m3-n4o5p6q7r8s9', 'quarterly', '2025-07-01', CURRENT_TIMESTAMP);
+
+-- Inserts para trainings
+INSERT INTO public.trainings (
+  id, name, description, instructor_id, start_date, end_date, max_participants, status, created_at, updated_at
+) VALUES
+('550e8400-e29b-41d4-a716-446655440000', 'Segurança no Trabalho', 'Treinamento obrigatório sobre normas de segurança.', 'b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q7', '2025-06-01 09:00:00', '2025-06-15 17:00:00', 100, 'mandatory', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('550e8400-e29b-41d4-a716-446655440001', 'Tecnologias Frontend', 'Curso sobre tecnologias de front-end.', 'c3d4e5f6-g7h8-i9j0-k1l2-m3n4o5p6q7r8', '2025-06-10 09:00:00', '2025-06-20 17:00:00', 50, 'development', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('550e8400-e29b-41d4-a716-446655440002', 'Liderança e Gestão', 'Treinamento para desenvolvimento de liderança.', 'g7h8i9j0-k1l2-m3n4-o5p6-q7r8s9t0u1v2', '2025-06-05 09:00:00', '2025-06-18 17:00:00', 80, 'development', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('550e8400-e29b-41d4-a716-446655440003', 'Atendimento ao Cliente', 'Treinamento sobre atendimento ao cliente.', 'h8i9j0k1-l2m3-n4o5-p6q7-r8s9t0u1v2w3', '2025-06-12 09:00:00', '2025-06-25 17:00:00', 60, 'development', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('550e8400-e29b-41d4-a716-446655440004', 'Gestão de Projetos', 'Treinamento sobre gestão de projetos', 'i9j0k1l2-m3n4-o5p6-q7r8-s9t0u1v2w3x4', '2025-06-20 09:00:00', '2025-06-30 17:00:00', 70, 'development', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+-- Inserts para training_participations
+INSERT INTO public.training_participations (
+  id, enrolled_at, completed_at, status, score, certificate, training_id, user_id
+) VALUES
+('550e8400-e29b-41d4-a716-446655440010', '2025-06-01 09:00:00', '2025-06-15 16:00:00', 'completed', 85.5, 'cert_seg_001', '550e8400-e29b-41d4-a716-446655440000', 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6'),
+('550e8400-e29b-41d4-a716-446655440011', '2025-06-01 09:00:00', '2025-06-15 16:00:00', 'completed', 90.0, 'cert_seg_002', '550e8400-e29b-41d4-a716-446655440000', 'b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q7'),
+('550e8400-e29b-41d4-a716-446655440012', '2025-06-01 09:00:00', '2025-06-15 16:00:00', 'completed', 88.0, 'cert_seg_003', '550e8400-e29b-41d4-a716-446655440000', 'c3d4e5f6-g7h8-i9j0-k1l2-m3n4o5p6q7r8'),
+('550e8400-e29b-41d4-a716-446655440013', '2025-06-01 09:00:00', NULL, 'enrolled', NULL, NULL, '550e8400-e29b-41d4-a716-446655440000', 'd4e5f6g7-h8i9-j0k1-l2m3-n4o5p6q7r8s9'),
+('550e8400-e29b-41d4-a716-446655440020', '2025-06-10 09:00:00', '2025-06-20 16:00:00', 'completed', 95.0, 'cert_tec_001', '550e8400-e29b-41d4-a716-446655440001', 'b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q7'),
+('550e8400-e29b-41d4-a716-446655440021', '2025-06-10 09:00:00', '2025-06-20 16:00:00', 'completed', 88.0, 'cert_tec_002', '550e8400-e29b-41d4-a716-446655440001', 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6'),
+('550e8400-e29b-41d4-a716-446655440030', '2025-06-05 09:00:00', '2025-06-18 16:00:00', 'completed', 80.0, 'cert_lid_001', '550e8400-e29b-41d4-a716-446655440002', 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6'),
+('550e8400-e29b-41d4-a716-446655440031', '2025-06-05 09:00:00', NULL, 'enrolled', NULL, NULL, '550e8400-e29b-41d4-a716-446655440002', 'd4e5f6g7-h8i9-j0k1-l2m3-n4o5p6q7r8s9'),
+('550e8400-e29b-41d4-a716-446655440040', '2025-06-12 09:00:00', '2025-06-25 16:00:00', 'completed', 87.0, 'cert_att_001', '550e8400-e29b-41d4-a716-446655440003', 'd4e5f6g7-h8i9-j0k1-l2m3-n4o5p6q7r8s9'),
+('550e8400-e29b-41d4-a716-446655440041', '2025-06-12 09:00:00', '2025-06-25 16:00:00', 'completed', 82.0, 'cert_att_002', '550e8400-e29b-41d4-a716-446655440003', 'c3d4e5f6-g7h8-i9j0-k1l2-m3n4o5p6q7r8'),
+('550e8400-e29b-41d4-a716-446655440042', '2025-06-12 09:00:00', NULL, 'enrolled', NULL, NULL, '550e8400-e29b-41d4-a716-446655440003', 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6'),
+('550e8400-e29b-41d4-a716-446655440050', '2025-06-20 09:00:00', NULL, 'enrolled', NULL, NULL, '550e8400-e29b-41d4-a716-446655440004', 'e5f6g7h8-i9j0-k1l2-m3n4-o5p6q7r8s9t0'),
+('550e8400-e29b-41d4-a716-446655440051', '2025-06-20 09:00:00', NULL, 'enrolled', NULL, NULL, '550e8400-e29b-41d4-a716-446655440004', 'f6g7h8i9-j0k1-l2m3-n4o5-p6q7r8s9t0u1');
+
+-- Inserts para tasks
+INSERT INTO public.tasks (
+  id, title, description, start_date, end_date, user_id, group_id, is_active, created_at, updated_at
+) VALUES
+('550e8400-e29b-41d4-a716-446655440100', 'Desenvolver módulo de autenticação', 'Implementar autenticação JWT no frontend', '2025-06-10 09:00:00', '2025-06-15 17:00:00', 'b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q7', NULL, true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('550e8400-e29b-41d4-a716-446655440101', 'Gerar relatório trimestral', 'Consolidar dados financeiros do Q2 2025', '2025-06-01 09:00:00', '2025-06-05 17:00:00', 'c3d4e5f6-g7h8-i9j0-k1l2-m3n4o5p6q7r8', NULL, true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('550e8400-e29b-41d4-a716-446655440102', 'Lançar campanha de verão', 'Planejar e executar campanha de marketing', '2025-06-15 09:00:00', '2025-06-20 17:00:00', 'd4e5f6g7-h8i9-j0k1-l2m3-n4o5p6q7r8s9', NULL, true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('550e8400-e29b-41d4-a716-446655440103', 'Revisar políticas de segurança', 'Atualizar documentação de segurança', '2025-06-01 09:00:00', '2025-06-10 17:00:00', 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6', NULL, true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('550e8400-e29b-41d4-a716-446655440104', 'Corrigir bugs no dashboard', 'Resolver issues reportados no sistema', '2025-05-20 09:00:00', '2025-05-25 17:00:00', 'b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q7', NULL, false, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('550e8400-e29b-41d4-a716-446655440105', 'Analisar custos logísticos', 'Revisar planilhas de custos', '2025-06-16 09:00:00', '2025-06-18 17:00:00', 'e5f6g7h8-i9j0-k1l2-m3n4-o5p6q7r8s9t0', NULL, true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('550e8400-e29b-41d4-a716-446655440106', 'Redigir contrato jurídico', 'Preparar contrato para cliente', '2025-06-16 09:00:00', '2025-06-19 17:00:00', 'f6g7h8i9-j0k1-l2m3-n4o5-p6q7r8s9t0u1', NULL, true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+-- Inserts para supporters
+-- Inserts para supporters
+INSERT INTO public.supporters (
+  id, name, phone, address, cep, mapping, "supportType", status, "createdAt", "updatedAt", lat, lng
+) VALUES
+('550e8400-e29b-41d4-a716-446655440011', 'João Silva', '(96) 99123-4567', 'Rua do Meio, 123, Centro', '68900-000', 'Zona Urbana - Macapá', 'people', 'active', CURRENT_TIMESTAMP, '2025-06-15 18:25:00', 0.0349, -51.0694),
+('550e8400-e29b-41d4-a716-446655440010', 'Maria Oliveira', '(96) 99234-5678', 'Av. Feliciano Coelho, 456, Lagoa Azul', '68903-100', 'Zona Leste - Macapá', 'funding', 'active', CURRENT_TIMESTAMP, '2025-06-15 18:25:00', 0.0380, -51.0650),
+('550e8400-e29b-41d4-a716-446655440012', 'Pedro Santos', '(96) 99345-6789', 'Rua Tiradentes, 789, Buritizal', '68906-200', 'Zona Oeste - Macapá', 'documents', 'active', CURRENT_TIMESTAMP, '2025-06-15 18:25:00', 0.0310, -51.0720),
+('550e8400-e29b-41d4-a716-446655440013', 'Ana Pereira', '(96) 99456-7890', 'Av. Coaracy Nunes, 321, Santa Rita', '68901-300', 'Zona Sul - Macapá', 'people', 'active', CURRENT_TIMESTAMP, '2025-06-15 18:25:00', 0.0355, -51.0700),
+('550e8400-e29b-41d4-a716-446655440014', 'Carlos Almeida', '(96) 99567-8901', 'Rua Leopoldo Machado, 654, Infraero', '68902-400', 'Zona Norte - Macapá', 'funding', 'active', CURRENT_TIMESTAMP, '2025-06-15 18:25:00', 0.0370, -51.0680);
+-- Inserts para chat_messages
+INSERT INTO public.chat_messages (
+  id, sender_id, "receiverId", message, "isBot", "messageType", "isRead", timestamp
+) VALUES
+('n3o4p5q6-r7s8-t9u0-v1w2-x3y4z5a6b7c8', 'bot-system-id', 'b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q7', 'Lembrete: Conclua o treinamento de Tecnologias Frontend até 20/06.', true, 'text', false, '2025-06-16 09:00:00'),
+('o4p5q6r7-s8t9-u0v1-w2x3-y4z5a6b7c8d9', 'b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q7', 'bot-system-id', 'Como acesso o certificado do treinamento?', false, 'text', true, '2025-06-16 09:30:00'),
+('p5q6r7s8-t9u0-v1w2-x3y4-z5a6b7c8d9e0', 'bot-system-id', 'c3d4e5f6-g7h8-i9j0-k1l2-m3n4o5p6q7r8', 'Por favor, envie o relatório financeiro até 18/06.', true, 'text', false, '2025-06-16 10:00:00'),
+('q6r7s8t9-u0v1-w2x3-y4z5-a6b7c8d9e0f1', 'd4e5f6g7-h8i9-j0k1-l2m3-n4o5p6q7r8s9', 'e5f6g7h8-i9j0-k1l2-m3n4-o5p6q7r8s9t0', 'Podemos discutir a campanha de verão na reunião de hoje?', false, 'text', true, '2025-06-16 11:00:00'),
+('r7s8t9u0-v1w2-x3y4-z5a6-b7c8d9e0f1g2', 'e5f6g7h8-i9j0-k1l2-m3n4-o5p6q7r8s9t0', 'd4e5f6g7-h8i9-j0k1-l2m3-n4o5p6q7r8s9', 'Sim, às 14h está bom?', false, 'text', false, '2025-06-16 11:30:00'),
+('s8t9u0v1-w2x3-y4z5-a6b7-c8d9e0f1g2h3', 'f6g7h8i9-j0k1-l2m3-n4o5-p6q7r8s9t0u1', 'bot-system-id', 'Como solicito um novo contrato?', false, 'text', true, '2025-06-16 12:00:00'),
+('t9u0v1w2-x3y4-z5a6-b7c8-d9e0f1g2h3i4', 'bot-system-id', 'f6g7h8i9-j0k1-l2m3-n4o5-p6q7r8s9t0u1', 'Acesse o módulo de contratos no sistema para criar um novo.', true, 'text', false, '2025-06-16 12:30:00'),
+('t0u1v2w3-x4y5-z6a7-b8c9-d0e1f2g3h4i5', 'bot-system-id', 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6', 'Bem-vindo ao sistema!', true, 'text', false, '2025-06-16 13:00:00'),
+('u1v2w3x4-y5z6-a7b8-c9d0-e1f2g3h4i5j6', 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6', 'bot-system-id', 'Obrigado!', false, 'text', true, '2025-06-16 13:30:00'),
+('v2w3x4y5-z6a7-b8c9-d0e1-f2g3h4i5j6k7', 'bot-system-id', 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6', 'Olá! São 15:38, como posso ajudar você hoje?', true, 'text', false, '2025-06-17 15:38:00-03'),
+('m1n2o3p4-q5r6-s7t8-u9v0-w1x2y3z4a5b7', 'q6r7s8t9-u0v1-w2x3-y4z5-a6b7c8d9e0f1', 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6', 'Olá, tem algo urgente para discutir?', false, 'text', false, '2025-06-17 17:09:00-03');
+
+-- Updates para chat_messages
+UPDATE public.chat_messages
+SET 
+    "isBot" = CASE 
+        WHEN "messageType" = 'bot' OR sender_id = 'bot-system-id' THEN true 
+        ELSE false 
+    END,
+    "messageType" = 'text',
+    sender_id = CASE 
+        WHEN "messageType" = 'bot' AND sender_id != 'bot-system-id' THEN 'bot-system-id'
+        ELSE sender_id 
+    END;
+
+UPDATE public.chat_messages
+SET "receiverId" = 'bot-system-id'
+WHERE id = 'm1n2o3p4-q5r6-s7t8-u9v0-w1x2y3z4a5b6';
+
+-- Inserts para performance_evaluations (mesclando com o script anterior)
+INSERT INTO public.performance_evaluations (
+  id, period, score, goals, achievements, feedback, status, created_at, updated_at, evaluator_id, user_id
+) VALUES
+('550e8400-e29b-41d4-a716-446655440700', '2025-Q1', 8.5, 'Melhorar processos de admissão', 'Automatizou fluxo de documentos', 'Ótimo desempenho', 'completed', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6', 'b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q7'),
+('550e8400-e29b-41d4-a716-446655440701', '2025-Q1', 9.0, 'Entregar API no prazo', 'API entregue com antecedência', 'Excelente trabalho em equipe', 'completed', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6', 'c3d4e5f6-g7h8-i9j0-k1l2-m3n4o5p6q7r8'),
+('f1a2b3c4-d5e6-f7g8-h9i0-j1k2l3m4n5o6', 'Q1-2025', 8.5, 'Aumentar vendas', 'Progresso de 70%', 'Bom progresso', 'completed', '2025-04-01 09:00:00', '2025-06-25 04:07:00', 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6', 'b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q7'),
+('f2b3c4d5-e6f7-g8h9-i0j1-k2l3m4n5o6p7', 'Q2-2025', 7.0, 'Melhorar comunicação', 'Progresso de 60%', 'Esforço razoável', 'pending', '2025-04-01 09:00:00', '2025-06-25 04:07:00', 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6', 'c3d4e5f6-g7h8-i9j0-k1l2-m3n4o5p6q7r8'),
+('f3c4d5e6-f7g8-h9i0-j1k2-l3m4n5o6p7q8', 'Q3-2025', 9.5, 'Expandir equipe', 'Progresso de 90%', 'Excelente trabalho', 'completed', '2025-04-01 09:00:00', '2025-06-25 04:07:00', 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6', 'd4e5f6g7-h8i9-j0k1-l2m3-n4o5p6q7r8s9'),
+('f4d5e6f7-g8h9-i0j1-k2l3-m4n5o6p7q8r9', 'Q4-2024', 6.5, 'Reduzir custos', 'Progresso de 50%', 'Precisa melhorar', 'pending', '2024-10-01 09:00:00', '2025-06-25 04:07:00', 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6', 'e5f6g7h8-i9j0-k1l2-m3n4-o5p6q7r8s9t0'),
+('f5e6f7g8-h9i0-j1k2-l3m4-n5o6p7q8r9s0', 'Q1-2025', 8.0, 'Aumentar produtividade', 'Progresso de 80%', 'Bom desempenho', 'completed', '2025-01-01 09:00:00', '2025-06-25 04:07:00', 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6', 'f6g7h8i9-j0k1-l2m3-n4o5-p6q7r8s9t0u1'),
+('p7q8r9s0-t1u2-v3w4-x5y6-z7a8b9c0d1e2', 'Q2-2025', 87.5, 'Melhorar desempenho em projetos', 'Projetos entregues no prazo', 'Bom progresso', 'pending', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6', 'b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q7'),
+('p8r9s0t1-u2v3-w4x5-y6z7-a8b9c0d1e2f3', 'Q2-2025', 92.0, 'Aumentar relatórios', 'Relatórios concluídos', 'Excelente', 'pending', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6', 'c3d4e5f6-g7h8-i9j0-k1l2-m3n4o5p6q7r8');
+
+SELECT t.id, t.name, t.instructor_id
+FROM public.trainings t
+LEFT JOIN public.users u ON t.instructor_id = u.id
+WHERE t.instructor_id IS NOT NULL AND u.id IS NULL;
+
+
+
+
+
+
+TRUNCATE TABLE public.departments, public.positions, public.users, public.profiles, 
+              public.admissions, public.admission_documents, public.groups, public.tasks, 
+              public.performance_evaluations, public.reports, public.trainings, 
+              public.training_participations, public.supporters, public.chat_messages 
+CASCADE;

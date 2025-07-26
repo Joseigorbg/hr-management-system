@@ -1,0 +1,59 @@
+{
+  "timestamp": "2025-06-18T20-22-40-577Z",
+  "settings": [
+    {
+      "id": "d6c9504c-5e53-4d1a-9122-bf485e03bf01",
+      "key": "notification.automated_reports",
+      "value": "true",
+      "description": "Relatórios automáticos",
+      "category": "notification",
+      "createdAt": "2025-06-18T20:12:02.119Z",
+      "updatedAt": "2025-06-18T20:12:13.424Z"
+    },
+    {
+      "id": "337855b1-ed0d-4364-a7a6-fccc4c41ffef",
+      "key": "notification.email_enabled",
+      "value": "true",
+      "description": "Receber atualizações por email",
+      "category": "notification",
+      "createdAt": "2025-06-18T20:12:05.126Z",
+      "updatedAt": "2025-06-18T20:12:14.480Z"
+    },
+    {
+      "id": "ec163860-8bf5-4f0d-a401-2ef87ed5585e",
+      "key": "notification.push_enabled",
+      "value": "true",
+      "description": "Notificações push",
+      "category": "notification",
+      "createdAt": "2025-06-18T20:12:01.388Z",
+      "updatedAt": "2025-06-18T20:12:16.313Z"
+    },
+    {
+      "id": "c442055e-658c-46d7-8df4-a4fd6ba4e65d",
+      "key": "system.company_name",
+      "value": "ServiçoRH",
+      "description": "Nome da empresa",
+      "category": "system",
+      "createdAt": "2025-06-18T20:12:22.555Z",
+      "updatedAt": "2025-06-18T20:12:37.864Z"
+    },
+    {
+      "id": "36f8de3e-49aa-4a84-a51a-f0d926050215",
+      "key": "user.automatic_registration",
+      "value": "true",
+      "description": "Registro automático de usuários",
+      "category": "user",
+      "createdAt": "2025-06-18T20:13:03.032Z",
+      "updatedAt": "2025-06-18T20:13:03.032Z"
+    },
+    {
+      "id": "a6e87379-d151-4b3a-9cdf-83eee60e27a6",
+      "key": "user.role_duplication",
+      "value": "true",
+      "description": "Evitar duplicação de papéis",
+      "category": "user",
+      "createdAt": "2025-06-18T20:13:03.836Z",
+      "updatedAt": "2025-06-18T20:13:03.836Z"
+    }
+  ]
+}

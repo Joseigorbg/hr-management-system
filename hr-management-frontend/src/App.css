@@ -1,0 +1,307 @@
+/* app.css */
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+@import 'leaflet/dist/leaflet.css'; /* Add Leaflet CSS here */
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Leaflet-specific styles for map rendering */
+.leaflet-container {
+  height: 100% !important;
+  width: 100% !important;
+  background: var(--background);
+  min-height: 300px;
+}
+
+/* General map container styling */
+.map-container {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  position: relative;
+  min-height: 300px;
+  min-width: 100%;
+  display: block;
+}
+
+/* Specific styling for the edit map container */
+.edit-map-container {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 2px dashed var(--primary);
+  background: var(--input);
+  position: relative;
+  min-height: 350px;
+  min-width: 100%;
+  display: block;
+  flex-shrink: 0;
+  z-index: 1000; /* Mantém o mapa acima de elementos gerais, mas abaixo do chat e popup */
+  height: 350px;
+}
+
+/* Chat container styling (adicionado para priorizar o chat) */
+.chat-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 400px;
+  max-height: 80vh;
+  background: var(--card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1100; /* Prioriza o chat acima do mapa (z-index 1000) */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ajuste para mensagens dentro do chat */
+.chat-container .messages {
+  padding: 1rem;
+  flex-grow: 1;
+}
+
+.chat-container .input-area {
+  padding: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+
+/* Custom marker styling */
+.custom-marker {
+  background: none;
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+/* Popup styling with higher z-index */
+.custom-popup .leaflet-popup-content-wrapper {
+  border-radius: var(--radius-sm);
+  background: var(--popover);
+  color: var(--popover-foreground);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem;
+  z-index: 1200; /* Prioriza o popup acima do mapa (z-index 1000) */
+}
+
+.custom-popup .leaflet-popup-tip {
+  background: var(--popover);
+}
+
+/* Style for the edit button inside the popup */
+.custom-popup .edit-btn {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  transition: background-color 0.2s ease;
+}
+
+.custom-popup .edit-btn:hover {
+  background: var(--primary) / 0.9;
+}
+
+/* Style Leaflet control buttons (e.g., zoom) */
+.leaflet-control {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.leaflet-control a {
+  color: var(--card-foreground);
+}
+
+.leaflet-control a:hover {
+  background: var(--muted);
+}
+
+/* Ensure Font Awesome icons are sized correctly for markers */
+.custom-marker .fa-map-marker-alt {
+  font-size: 24px;
+}
+
+/* Animation for gradient flow */
+@keyframes gradient-flow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Animation for border flow */
+@keyframes border-flow {
+  0% {
+    background-position: 0% 0%;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    background-position: 100% 100%;
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    background-position: 0% 0%;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.animate-gradient-flow {
+  animation: gradient-flow 6s ease-in-out infinite alternate;
+  background-size: 200% 200%;
+}
+
+.animate-border-flow {
+  animation: border-flow 8s ease-in-out infinite;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+  background-size: 200% 200%;
+  border-image: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3)) 1;
+}
+
+/* Ensure DialogContent uses flex layout */
+.DialogContent {
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  gap: 1rem;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Ensure form and map are separated */
+.DialogContent .grid {
+  flex: 1;
+}
+
+.DialogContent .map-container,
+.DialogContent .edit-map-container {
+  flex-shrink: 0;
+}
+
+.edit-map-container,
+.map-container {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  min-height: 350px !important;
+  min-width: 100% !important;
+  height: 350px !important;
+  width: 100% !important;
+  display: block;
+  flex-shrink: 0;
+}

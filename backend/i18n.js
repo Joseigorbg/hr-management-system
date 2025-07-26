@@ -1,0 +1,70 @@
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+
+i18n.use(initReactI18next).init({
+  resources: {
+    'pt-BR': {
+      translation: {
+        settings: 'Configurações',
+        new_setting: 'Nova Configuração',
+        edit_setting: 'Editar Configuração',
+        create_setting: 'Criar Configuração',
+        save_changes: 'Salvar Alterações',
+        cancel: 'Cancelar',
+        search_settings: 'Pesquisar configurações...',
+        no_settings_found: 'Nenhuma configuração encontrada.',
+        loading: 'Carregando...',
+        general_settings: 'Configurações Gerais',
+        system_notifications: 'Notificações do Sistema',
+        user_management: 'Gestão de Usuários',
+        backup_security: 'Backup e Segurança',
+        manage_permissions: 'Gerenciar Permissões',
+        perform_backup: 'Fazer Backup',
+        session_expired: 'Sessão expirada. Faça login novamente.',
+        setting_created: 'Configuração criada com sucesso!',
+        setting_updated: 'Configuração atualizada com sucesso!',
+        setting_deleted: 'Configuração excluída com sucesso!',
+        backup_success: 'Backup realizado com sucesso!',
+        restore_success: 'Backup restaurado com sucesso!',
+        error_loading_settings: 'Erro ao carregar configurações.',
+        error_loading_categories: 'Erro ao carregar categorias.',
+        error_processing_response: 'Erro ao processar a resposta do servidor',
+      },
+    },
+    'en-US': {
+      translation: {
+        settings: 'Settings',
+        new_setting: 'New Setting',
+        edit_setting: 'Edit Setting',
+        create_setting: 'Create Setting',
+        save_changes: 'Save Changes',
+        cancel: 'Cancel',
+        search_settings: 'Search settings...',
+        no_settings_found: 'No settings found.',
+        loading: 'Loading...',
+        general_settings: 'General Settings',
+        system_notifications: 'System Notifications',
+        user_management: 'User Management',
+        backup_security: 'Backup and Security',
+        manage_permissions: 'Manage Permissions',
+        perform_backup: 'Perform Backup',
+        session_expired: 'Session expired. Please log in again.',
+        setting_created: 'Setting created successfully!',
+        setting_updated: 'Setting updated successfully!',
+        setting_deleted: 'Setting deleted successfully!',
+        backup_success: 'Backup performed successfully!',
+        restore_success: 'Backup restored successfully!',
+        error_loading_settings: 'Error loading settings.',
+        error_loading_categories: 'Error loading categories.',
+        error_processing_response: 'Error processing server response',
+      },
+    },
+  },
+  lng: 'pt-BR',
+  fallbackLng: 'pt-BR',
+  interpolation: {
+    escapeValue: false,
+  },
+});
+
+export default i18n;

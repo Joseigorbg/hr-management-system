@@ -1,0 +1,574 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 4035
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 20 Tf
+23. TL
+0 g
+207.6377952755905767 785.1970866141732586 Td
+(Relatório de Tarefas) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+209.0377952755905255 762.5199212598424765 Td
+(Gerado em: 05/07/2025 21:32:21 -03:00) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 728.5041732283464171 Td
+(Tarefa 1:) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 700.15771653543311 Td
+(Título: rabeo) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 671.8112598425196893 Td
+(Descrição: vao te comer) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 643.4648031496062686 Td
+(Período: 2025-06-27 06:39 - 2025-06-30 08:39) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 615.1183464566928478 Td
+(Usuário: Não atribuído) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 586.7718897637794271 Td
+(Status: Ativa) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 558.42543307086612 Td
+(Tarefa 2:) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 530.0789763779526993 Td
+(Título: Desenvolver módulo de autenticação) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 501.7325196850393354 Td
+(Descrição: Implementar autenticação JWT no frontend) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 473.3860629921259147 Td
+(Período: 2025-06-10 06:00 - 2025-06-15 14:00) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 445.0396062992125508 Td
+(Usuário: b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q7) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 416.69314960629913 Td
+(Status: Ativa) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 388.3466929133857661 Td
+(Tarefa 3:) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 360.0002362204724022 Td
+(Título: Gerar relatório trimestral) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 331.6537795275589815 Td
+(Descrição: Consolidar dados financeiros do Q2 2025) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 303.3073228346455608 Td
+(Período: 2025-06-01 06:00 - 2025-06-05 14:00) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 274.9608661417322537 Td
+(Usuário: c3d4e5f6-g7h8-i9j0-k1l2-m3n4o5p6q7r8) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 246.614409448818833 Td
+(Status: Ativa) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 218.2679527559054122 Td
+(Tarefa 4:) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 189.9214960629919915 Td
+(Título: Lançar campanha de verão) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 161.5750393700786844 Td
+(Descrição: Planejar e executar campanha de marketing) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 133.2285826771652637 Td
+(Período: 2025-06-15 06:00 - 2025-06-20 14:00) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 104.882125984251843 Td
+(Usuário: d4e5f6g7-h8i9-j0k1-l2m3-n4o5p6q7r8s9) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 76.5356692913385359 Td
+(Status: Ativa) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 48.1892125984251152 Td
+(Tarefa 5:) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 19.8427559055116944 Td
+(Título: Revisar políticas de segurança) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 -8.5037007874017263 Td
+(Descrição: Atualizar documentação de segurança) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 -36.8501574803150334 Td
+(Período: 2025-06-01 06:00 - 2025-06-10 14:00) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 -65.1966141732284541 Td
+(Usuário: a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 -93.5430708661418748 Td
+(Status: Ativa) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+260.9177952755906063 19.8427559055116944 Td
+(Página 1 de 2) Tj
+ET
+endstream
+endobj
+5 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 6 0 R
+>>
+endobj
+6 0 obj
+<<
+/Length 1561
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 785.1970866141732586 Td
+(Tarefa 6:) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 756.8506299212598378 Td
+(Título: Corrigir bugs no dashboard) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 728.5041732283464171 Td
+(Descrição: Resolver issues reportados no sistema) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 700.15771653543311 Td
+(Período: 2025-05-20 06:00 - 2025-05-25 14:00) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 671.8112598425196893 Td
+(Usuário: b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q7) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 643.4648031496062686 Td
+(Status: Inativa) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 615.1183464566928478 Td
+(Tarefa 7:) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 586.7718897637794271 Td
+(Título: rabeo) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 558.42543307086612 Td
+(Descrição: vao te comer) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 530.0789763779526993 Td
+(Período: 2025-06-27 06:39 - 2025-06-30 08:39) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 501.7325196850393354 Td
+(Usuário: Não atribuído) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 473.3860629921259147 Td
+(Status: Ativa) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+260.9177952755906063 19.8427559055116944 Td
+(Página 2 de 2) Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R 5 0 R ]
+/Count 2
+>>
+endobj
+7 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+8 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+9 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+10 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+11 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+12 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+13 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+14 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+15 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+16 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+17 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+18 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+19 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+20 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 7 0 R
+/F2 8 0 R
+/F3 9 0 R
+/F4 10 0 R
+/F5 11 0 R
+/F6 12 0 R
+/F7 13 0 R
+/F8 14 0 R
+/F9 15 0 R
+/F10 16 0 R
+/F11 17 0 R
+/F12 18 0 R
+/F13 19 0 R
+/F14 20 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+21 0 obj
+<<
+/Producer (jsPDF 3.0.1)
+/CreationDate (D:20250705213221-03'00')
+>>
+endobj
+22 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 23
+0000000000 65535 f 
+0000005989 00000 n 
+0000007814 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000004239 00000 n 
+0000004376 00000 n 
+0000006052 00000 n 
+0000006177 00000 n 
+0000006307 00000 n 
+0000006440 00000 n 
+0000006578 00000 n 
+0000006702 00000 n 
+0000006831 00000 n 
+0000006963 00000 n 
+0000007099 00000 n 
+0000007227 00000 n 
+0000007354 00000 n 
+0000007483 00000 n 
+0000007616 00000 n 
+0000007718 00000 n 
+0000008064 00000 n 
+0000008150 00000 n 
+trailer
+<<
+/Size 23
+/Root 22 0 R
+/Info 21 0 R
+/ID [ <922B7C0C6776B6D3B083FC0013CC0600> <922B7C0C6776B6D3B083FC0013CC0600> ]
+>>
+startxref
+8254
+%%EOF
